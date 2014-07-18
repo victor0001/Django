@@ -1,0 +1,20 @@
+﻿<tbody>
+    {% for m in model %}
+    <tr>
+        <td>
+            <article>
+                <div class="heading">
+    	    		<h2><a href="/blog/{{m.article.id}}/">{{ m.article.title }}</a></h2>
+    	    	</div>
+    	    	<div class="content">
+    	    		<p>{{ m.article.abstract }}...</p>
+    
+    	    	</div>
+    	    	<div class="info">
+    	    		<p>By Admin on {{ m.article.addDate }} - <a href="#">{{m.commentCount}} Commnets</a></p>
+    	    	</div>
+            </article>
+        </td>
+    </tr>
+    {% endfor %}
+</tbody>

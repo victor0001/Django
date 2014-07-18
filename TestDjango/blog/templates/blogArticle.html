@@ -1,0 +1,87 @@
+﻿{% extends "index.html" %}
+{% block content %}
+<script type="text/javascript" src="/static/admin/KE/plugins/code/prettify.js"></script>
+<script>
+    $(function(){ prettyPrint(); });
+</script>
+<div class="wrap-col">
+	<article>
+		<div class="heading">
+			<h2>{{ model.title }}</h2>
+            <div class="clearfix">
+                <h3 class="fr">{{model.abstract}}</h3>
+            </div>
+		</div>
+		<div class="content">
+			<p>{{ model.content|safe }}</p>
+		</div>
+		<div class="info">
+			<p>上次修改时间：{{model.addDate}} ; {{ model.addTime }}</p>
+		</div>
+	</article>
+    <script type="text/javascript">
+    function doclick(articleId,count){
+    alert("点赞成功，不要点多了哦~");
+    $.ajax({
+        type: "post",
+        url: '/favor/',
+        cache: false,
+        data: {
+            articleId: articleId,
+            count:count
+        },
+        success: function (json) {
+            $("#favorCount").text(parseInt($("#favorCount").text())+count )   
+        }
+      });
+    }
+    </script>
+	<div>
+        <div>
+            <button id="favor" onclick="doclick({{model.id}},1)">赞</button>
+            <button id="favor32" onclick="doclick({{model.id}},32)"><img src="/static/admin/img/like.png" alt="" />32个赞</button>
+        </div>
+        <div class="userful_count">
+            <span id="favorCount">{{model.favorcount}}</span>
+            个用户觉得有用
+        </div>
+    </div>
+    <!--comments-->
+    <div>
+        {% for com in comments %}
+            <div>
+                <div>
+                    <span>
+                        <a> {{com.email}} </a>在{{com.addTime}}回复：
+                    </span>
+                </div>
+                <span>{{com.message}}</span>
+            </div>
+        {% endfor %}
+    </div>
+	<section>
+		<h3>添加评论</h3>
+		
+		<form id="contact-form" method="post" action="/blog/addcomment/{{model.id}}/">
+            {% csrf_token %}
+		    <fieldset>
+		        <label><input name="email" value="Email" onBlur="if(this.value=='') this.value='Email'" onFocus="if(this.value =='Email' ) this.value=''" /></label>
+		        <label><input name="subject" value="Subject" onBlur="if(this.value=='') this.value='Subject'" onFocus="if(this.value =='Subject' ) this.value=''" /></label>
+		        <textarea name="message" onBlur="if(this.value=='') this.value='Message'" onFocus="if(this.value =='Message' ) this.value=''">Message</textarea>
+		        <div class="buttons">
+		            <a href="#" onClick="document.getElementById('contact-form').reset()">Clear</a>
+		            <a href="#" onClick="document.getElementById('contact-form').submit()">Send</a>
+		        </div>											
+		    </fieldset>           
+		</form>
+	</section>
+</div>
+{% endblock%}
+
+{% block mostPopular %}
+{% include "TopPop.html"%}
+{% endblock %}
+
+{% block category %}
+{% include "CategoryList.html"%}
+{% endblock %}

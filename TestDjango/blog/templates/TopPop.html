@@ -1,0 +1,9 @@
+<div class="content">
+	<div class="post">
+        {% for art in popArticles %}
+		<!--img src="/static/admin/images/img4.jpg" width="50px"/-->
+		<h4><a href="/blog/{{art.id}}/">{{art.title}}</a></h4>
+		<p>{{art.addDate}}</p>
+        {% endfor %}
+	</div>
+</div>

@@ -1,0 +1,175 @@
+﻿<!DOCTYPE html>
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html lang="en"> <!--<![endif]-->
+<head>
+
+    <!-- Basic Page Needs
+  ================================================== -->
+	<meta charset="utf-8">
+	<title>SharePoint&Web</title>
+	<meta name="description" content="这是一个个人博客。"/>
+    <meta name="keywords" content="SharePoint 煎饼梁" />
+	<meta name="author" content="dl_ljb@163.com" />
+	
+    <!-- Mobile Specific Metas
+  ================================================== -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+    
+    <!-- CSS
+  ================================================== -->
+  	<link rel="stylesheet" href="/static/admin/css/zerogrid.css"/>
+	<link rel="stylesheet" href="/static/admin/css/style.css"/>
+    <link rel="stylesheet" href="/static/admin/css/responsive.css"/>
+    <link rel="stylesheet" href="/static/admin/css/pager.css"/>
+    <link rel="stylesheet" href="/static/admin/KE/plugins/code/prettify.css"/>
+	
+	<!--[if lt IE 8]>
+       <div style=' clear: both; text-align:center; position: relative;'>
+         <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+           <img src="http://storage.ie6countdown.com/assets/100/images/banners/warning_bar_0000_us.jpg" border="0" height="42" width="820" alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today." />
+        </a>
+      </div>
+    <![endif]-->
+    <!--[if lt IE 9]>
+		<script src="js/html5.js"></script>
+		<script src="js/css3-mediaqueries.js"></script>
+	<![endif]-->
+	<script src="/static/admin/js/jquery.min.js"></script>
+    <script src="/static/admin/js/pager.js"></script>
+    <script src="/static/admin/js/tableview.js"></script>
+    <script src="/static/admin/js/main.js"></script>
+    <script src="/static/admin/js/csrf.js"></script>
+	<link href='/static/admin/images/favicon.ico' rel='icon' type='image/x-icon'/>
+</head>
+<body>
+<div class="wrap-body zerogrid">
+<!--------------Header--------------->
+<header>
+	<div class="wrap-header">
+		
+		<div class="top">
+			<div class="socials">
+				<ul>
+					<li><a href="#" title="facebook"><img  src="/static/admin/images/socials/facebook-32x32.png"/></a></li>
+					<li><a href="#" title="google"><img  src="/static/admin/images/socials/google-32x32.png"/></a></li>
+					<li><a href="#" title="twitter"><img  src="/static/admin/images/socials/twitter-32x32.png"/></a></li>
+					<li><a href="#" title="rss"><img  src="/static/admin/images/socials/rss-32x32.png"/></a></li>
+					<li><a href="#" title="youtube"><img  src="/static/admin/images/socials/youtube-32x32.png"/></a></li>
+				</ul>
+			</div>
+			<div id="search">
+				<div class="button-search"></div>
+				<input type="text" value="Search..." onfocus="if (this.value == &#39;Search...&#39;) {this.value = &#39;&#39;;}" onblur="if (this.value == &#39;&#39;) {this.value = &#39;Search...&#39;;}">
+			</div>
+		</div>
+		
+		<div id="logo">
+			<h1>SharePoint&Web加油站</h1>
+		</div>
+		
+		<nav>
+			<div class="wrap-nav">
+				<div class="menu">
+					<ul>
+						<li><a href="#">首页</a></li>
+						<li><a href="\about">关于本站</a></li>
+						<li><a href="\contact">联系作者</a></li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+		
+	</div>
+</header>
+
+<!--------------Content--------------->
+<section id="content">
+	<div class="wrap-content">
+		<div class="row block">
+			<div id="main-content" class="col-2-3">
+                <div class="wrap-col">
+				    {% block content %}
+                    {% endblock %}
+                </div>
+			</div>
+			<div id="sidebar" class="col-1-3">
+				<div class="wrap-col">
+                    <embed src="http://www.blogclock.cn/swf/S10014498e66b1f-f.swf" Width="176px" Height="109px" type="application/x-shockwave-flash" quality="high" wmode="transparent"></embed>
+					<div class="box">
+						<div class="heading"><h2>关于作者</h2></div>
+						<div class="content">
+							<img src="/static/admin/images/zerotheme.jpg" style="border: 0px;"/>
+							<p>作者80后，无车无房一码农。</p>
+						</div>
+					</div>
+					<div class="box">
+						<div class="heading"><h2>技术分类</h2></div>
+                        {% block category %}
+                        {% endblock %}
+					</div>
+					<div class="box">
+						<div class="heading"><h2>最受欢迎文章</h2></div>
+                        {% block mostPopular %}
+                        {% endblock %}
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<!--------------Footer--------------->
+<!--footer>
+	<div class="wrap-footer">
+		<div class="row">
+			<div class="col-1-3">
+				<div class="wrap-col">
+					<div class="box">
+						<div class="heading"><h2>Image Gallery</h2></div>
+						<div class="content gallery">
+							<a href="#"><img src="/static/admin/images/img1.jpg" width="120"/></a>
+							<a href="#"><img src="/static/admin/images/img2.jpg" width="120"/></a>
+							<a href="#"><img src="/static/admin/images/img3.jpg" width="120"/></a>
+							<a href="#"><img src="/static/admin/images/img4.jpg" width="120"/></a>
+							<a href="#"><img src="/static/admin/images/img5.jpg" width="120"/></a>
+							<a href="#"><img src="/static/admin/images/img1.jpg" width="120"/></a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-1-3">
+				<div class="wrap-col">
+					<div class="box">
+						<div class="heading"><h2>About Us</h2></div>
+						<div class="content">
+							<img src="/static/admin/images/zerotheme.jpg" style="border: 0px;"/>
+							<p>Html5 Templates created by chinaz. You can use and modify the template for both personal and commercial use. You must keep all copyright information and credit links in the template and associated files.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-1-3">
+				<div class="wrap-col">
+					<div class="box">
+						<div class="heading"><h2>Contact Us</h2></div>
+						<div class="content">
+							<p>Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue.</p>
+							<p>Website : <a href="http://sc.chinaz.com" target="_blank">sc.chinaz.com</a></p>
+							<p>+1 (123) 444-5677 <br/> +1 (123) 444-5678</p>
+							<p>Address: 123 TemplateAccess Rd1</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="copyright">
+		<p>&copy; Copyright &copy; 2014.Company name All rights reserved.<a target="_blank" href="http://sc.chinaz.com/moban/">&#x7F51;&#x9875;&#x6A21;&#x677F;</a></p>
+	</div>
+</footer-->
+
+</div>
+<!--div style="display:none"><script src='http://v7.cnzz.com/stat.php?id=155540&web_id=155540' language='JavaScript' charset='gb2312'></script></div-->
+</body>
+</html>
